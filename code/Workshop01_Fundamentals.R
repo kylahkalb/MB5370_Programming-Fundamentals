@@ -1,8 +1,7 @@
+#---------------------------------------------#
 # MB5370: Techniques in Marine Science 1
 # Programming Fundamentals 
-# Kylah Kalblfeisch
-# 15/09/26
-
+# Kylah Kalbfleisch
 #---------------------------------------------#
 # Workshop 01. Introduction ####
 
@@ -14,7 +13,7 @@
 
 # Functions and arguments ####
 
-#round and floor to round up or down
+#round() rounds to the nearest value and floor rounds down
 years_old <- 25.7
 round(years_old) #rounds up
 floor(years_old) #rounds down
@@ -32,7 +31,7 @@ coral_count <- 42
 #saving a vector of multiple fish lengths (in mm)
 fish_lengths <- c(124, 152, 98, 221, 146)
 
-# option - lets you get an <- 
+# option + - inserts <- on a Mac
 
 #object names are case senstiive, can't use a number at the beginning or special symbols
 # can corrent with backticks (``)
@@ -92,8 +91,8 @@ notes[[1]]
 
 #Data frames and tibbles##
 my_dataframe <- data.frame(no = c(1,2,3), c("Plectropomus", "Scarus", "Pomacentrus"), c(TRUE, FALSE, TRUE))
-                           my_dataframe
-                           str(my_dataframe)
+my_dataframe
+str(my_dataframe)
                            
 my_dataframe$no = as.factor(my_dataframe$no)
 str(my_dataframe)
