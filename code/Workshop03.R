@@ -1,15 +1,14 @@
+#---------------------------------------------#
 # MB5370: Techniques in Marine Science 1
 # Programming Fundamentals 
-# Kylah Kalblfeisch
-# 22/09/26
-
+# Kylah Kalbfleisch
 #---------------------------------------------#
 # Workshop 03. Reproducible Research in Marine Science ####
 
 #Git and GitHub ###
 
 #install package
-install.packages("usethis")
+#install.packages("usethis") #run in console if installation is needed
 
 #run
 credentials::git_credential_ask()
