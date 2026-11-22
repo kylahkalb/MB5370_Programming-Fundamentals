@@ -2,9 +2,7 @@
 #------------------------------------#
 # MB5370: Techniques in Marine Science 1
 # Programming Fundamentals
-# Ben Cresswell
-# 20 May 2026
-
+# Kylah Kalbfleisch
 #------------------------------------#
 # Workshop 01. Introduction ####
 
