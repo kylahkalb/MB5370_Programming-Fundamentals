@@ -1,0 +1,83 @@
+---
+title: "Programming Fundamentals - Workshop 4: The Developer's Toolbox & AI"
+author: "Kylah Kalbfleisch"
+date: "2026-09-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 4.3 GitHub copilot
+```{r}
+# Load tidyverse and palmerpenguins libraries
+library(tidyverse)
+#install.packages("palmerpenguins")
+library(palmerpenguins)
+```
+
+```{r}
+# Create a ggplot scatter plot using the penguins dataset. 
+# Plot bill_length_mm on the x-axis and bill_depth_mm on the y-axis.
+# Color points by species and use geom_point with size 3.
+# Add a minimal theme and clean labels.
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +
+  geom_point(size = 3) +
+  theme_minimal() +
+  labs(title = "Bill Length vs Bill Depth by Species",
+       x = "Bill Length (mm)",
+       y = "Bill Depth (mm)",
+       color = "Species")
+```
+
+```{r}
+# Generate a boxplot comparing flipper_length_mm across different species, faceted by island, using custom color palettes
+boxplot <- ggplot(data = penguins, aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_boxplot() +
+  facet_wrap(~ island) +
+  scale_fill_manual(values = c("Adelie" = "#1f77b4", "Chinstrap" = "#ff7f0e", "Gentoo" = "#2ca02c")) +
+  theme_minimal() +
+  labs(title = "Flipper Length by Species and Island",
+       x = "Species",
+       y = "Flipper Length (mm)",
+       fill = "Species")
+boxplot
+```
+
+```{r}
+# Build a scatter plot mapping body_mass_g against flipper_length_mm, adding a linear regression trend line (geom_smooth) for each species
+scatter_plot <- ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
+  geom_point(size = 3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal() +
+  labs(title = "Body Mass vs Flipper Length by Species",
+       x = "Flipper Length (mm)",
+       y = "Body Mass (g)",
+       color = "Species")
+scatter_plot
+```
+
+## 4.4 Chattr
+```{r}
+#install.packages("ellmer")
+#install.packages("chattr")
+```
+
+```{r}
+# Create a tibble named marine_stations with a salinity column
+# containing the values 35, 28, 32, and 12.
+# Use %>%, mutate(), and case_when() to create a new column
+# named environment_type.
+# Classify salinity below 15 as "Estuarine",
+# between 15 and 30 as "Brackish",
+# and above 30 as "Marine".
+marine_stations <- tibble(salinity = c(35, 28, 32, 12)) %>%
+  mutate(environment_type = case_when(
+    salinity < 15 ~ "Estuarine",
+    salinity >= 15 & salinity <= 30 ~ "Brackish",
+    salinity > 30 ~ "Marine"
+  ))
+marine_stations
+```
+
